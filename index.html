@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="app.css">
+    <title>ScoreKeeper</title>
+</head>
+<body>
+    <div class="container flex">
+        <div class="card">
+                <img src="C:/Users/Tomas/Desktop/WEB-COURSE/ScoreKeeper/banner.png" class="card-img-top">
+            <div class="card-body">
+                <h1><span id="score1">0</span> vs <span id="score2">0</span></h1>
+                <h5 class="card-title">Card title</h5>
+                <label for="score-select">Play to:</label>
+                <select class="form-select" id="score-select">
+                    <option value="">-Pick a Goal-</option>
+                    <option value=3>3</option>
+                    <option value=5>5</option>
+                    <option value=10>10</option>
+                    <option value=15>15</option>
+                    <option value=20>20</option>
+                </select>
+                <button class="btn btn-primary">Player 1</button>
+                <button class="btn btn-secondary">Player 2</button>
+                <button class="btn btn-warning">Reset</button>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    <script src="app.js"></script>
+</footer>
+</html>

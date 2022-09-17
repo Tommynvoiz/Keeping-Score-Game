@@ -1,0 +1,19 @@
+
+.card {
+    width: 20rem;
+    margin: 20px auto;
+    background-color: rgb(190, 191, 192);
+}
+
+.form-select {
+    display: inline ;
+    width: 50% ;
+    margin: 5px ;
+}
+
+.winner{
+    color: green;
+}
+.loser{
+    color: red;
+}
