@@ -17,3 +17,13 @@
 .loser{
     color: red;
 }
+.p-name{
+    margin: 0 auto;
+    width: 65%;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    top: 30px;
+    left: 50px;
+    font-size: 30px;
+}

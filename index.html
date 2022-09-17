@@ -11,22 +11,25 @@
 <body>
     <div class="container flex">
         <div class="card">
-                <img src="C:/Users/Tomas/Desktop/WEB-COURSE/ScoreKeeper/banner.png" class="card-img-top">
+                <img src="C:/Users/Tomas/Desktop/WEB-COURSE/ScoreKeeper/vs.jpg" class="card-img-top">
+                <p class="p-name"><span id="name1" class="mr-3 text-light"></span><span id="name2" class="ml-3 text-danger"></span></p>
             <div class="card-body">
-                <h1><span id="score1">0</span> vs <span id="score2">0</span></h1>
-                <h5 class="card-title">Card title</h5>
+              <div class="d-flex justify-content-center">
+                <h1><span id="score1">0</span> to <span id="score2">0</span></h1>              
+              </div>
+              <h5 class="card-title">Score</h5>
                 <label for="score-select">Play to:</label>
                 <select class="form-select" id="score-select">
-                    <option value="">-Pick a Goal-</option>
+                    <option value="0">-Pick a Goal-</option>
                     <option value=3>3</option>
                     <option value=5>5</option>
                     <option value=10>10</option>
                     <option value=15>15</option>
                     <option value=20>20</option>
                 </select>
-                <button class="btn btn-primary">Player 1</button>
-                <button class="btn btn-secondary">Player 2</button>
-                <button class="btn btn-warning">Reset</button>
+                <button class="btn btn-primary m-2">Player 1</button>
+                <button class="btn btn-secondary m-2">Player 2</button>
+                <button class="btn btn-warning m-2">Reset</button>
             </div>
         </div>
     </div>
