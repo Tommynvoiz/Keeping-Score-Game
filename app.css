@@ -2,7 +2,8 @@
 .card {
     width: 20rem;
     margin: 20px auto;
-    background-color: rgb(190, 191, 192);
+    background-color: rgb(48, 48, 48);
+    color: white;
 }
 
 .form-select {
@@ -19,11 +20,17 @@
 }
 .p-name{
     margin: 0 auto;
-    width: 65%;
+    width: 95%;
     position: absolute;
     display: flex;
     justify-content: space-between;
     top: 30px;
-    left: 50px;
+    left: 10px;
     font-size: 30px;
+}
+.pick-side{
+    background: rgb(231,23,23);
+    background: linear-gradient(114deg, rgba(231,23,23,1) 0%, rgba(238,18,18,1) 50%, rgba(179,173,173,1) 50%, rgba(194,194,194,1) 100%);
+    color: white;
+    border: 1px solid black;
 }

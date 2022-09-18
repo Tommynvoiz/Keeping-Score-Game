@@ -1,64 +1,91 @@
-const display1 = document.querySelector('#score1');
-const display2 = document.querySelector('#score2');
-const name1 = document.querySelector('#name1');
-const name2 = document.querySelector('#name2');
-const player1 = document.querySelector('.btn-primary');
-const player2 = document.querySelector('.btn-secondary');
+const p1 = {
+    score: 0,
+    display: document.querySelector('#score1'),
+    button: document.querySelector('.btn-primary'),
+    name: ""
+}
+const p2 = {
+    score: 0,
+    display: document.querySelector('#score2'),
+    button: document.querySelector('.btn-secondary'),
+    name: ""
+}
+const displayNameP1 = document.querySelector('#name1');
+const displayNameP2 = document.querySelector('#name2');
 const reset = document.querySelector('.btn-warning');
+const pickSide = document.querySelector('.pick-side');
 const selectScore = document.querySelector('#score-select');
+const theWinnerIs = document.querySelector('#who-is');
 
-
-let pName1 = prompt("Player-1 add 3 letter name");
-name1.textContent = pName1.toUpperCase();
-let pName2 = prompt("Player-2 add 3 letter name");
-name2.textContent = pName2.toUpperCase();
-let score1 = 0;
-let score2 = 0;
+let playerName1 = " ";
+let playerName2 = " ";
 let isGameOver = false;
 let winningScore = 0; 
 
-player1.addEventListener("click", function() {
-    if(!isGameOver && winningScore!=0){
-        score1 += 1;
-        if(score1 === winningScore){
-            isGameOver = true;
-            display1.classList.add('winner');
-            display2.classList.add('loser');
-            player1.disabled = true;
-            player2.disabled = true;
-        }
-        display1.textContent = score1;
-    }
-});
-player2.addEventListener("click", function() {
-    if(!isGameOver && winningScore!=0){
-        score2 += 1;
-        if(score2 === winningScore){
-            isGameOver = true;
-            display2.classList.add('winner');
-            display1.classList.add('loser');
-            player1.disabled = true;
-            player2.disabled = true;
-        }
-        display2.textContent = score2;
-    }
-});
+pickNewSide(playerName1, playerName2);
+
 selectScore.addEventListener('change', function(){
     winningScore = parseInt(this.value);
-    resetB();
+    resetGame();
 })
-reset.addEventListener('click', resetB);
 
-function resetB(){
-    score1 = 0;
-    score2 = 0;
+
+p1.button.addEventListener("click", function() {
+    updateScore(p1,p2);
+});
+p2.button.addEventListener("click", function() {
+    updateScore(p2,p1);
+});
+reset.addEventListener('click', resetGame);
+
+pickSide.addEventListener('click', pickNewSide);
+
+
+function pickNewSide(playerName1, playerName2){
+    playerName1 = prompt("Add name of Player-1");
+    displayNameP1.textContent = playerName1.toUpperCase();
+    p1.name = playerName1;
+    playerName2 = prompt("Add name of Player-2");
+    displayNameP2.textContent = playerName2.toUpperCase();
+    p2.name = playerName2;
+    resetGame();
+}
+
+
+function updateScore (player, oponents){
+    if(!isGameOver && winningScore!=0){
+        player.score += 1;
+        if(player.score === winningScore){
+            isGameOver = true;
+            player.display.classList.add('winner');
+            oponents.display.classList.add('loser');
+            player.button.disabled = true;
+            oponents.button.disabled = true;
+        }
+        player.display.textContent = player.score;
+        if(player.score > oponents.score){
+            theWinnerIs.textContent = `${player.name.toUpperCase()} is winning so far`;
+        }
+        if(player.score === oponents.score){
+            theWinnerIs.textContent = "Is a Tie";
+        }
+        if(player.score === winningScore){
+            theWinnerIs.textContent = `${player.name.toUpperCase()} is the WINNER!!!`;
+        }
+    }
+}
+
+function resetGame(){
+    p1.score = 0;
+    p2.score = 0;
     isGameOver = false;
-    display1.textContent = score1;
-    display2.textContent = score2;
-    display1.classList.remove('winner');
-    display1.classList.remove('loser');
-    display2.classList.remove('winner');
-    display2.classList.remove('loser');
-    player1.disabled = false;
-    player2.disabled = false;
+    p1.display.textContent = p1.score;
+    p2.display.textContent = p2.score;
+    p1.display.classList.remove('winner');
+    p1.display.classList.remove('loser');
+    p2.display.classList.remove('winner');
+    p2.display.classList.remove('loser');
+    p1.button.disabled = false;
+    p2.button.disabled = false;
+    theWinnerIs.textContent = "Who will win?";
 }
